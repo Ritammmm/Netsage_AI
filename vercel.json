@@ -1,0 +1,33 @@
+{
+  "services": {
+    "frontend": {
+      "root": "frontend/",
+      "framework": "vite"
+    },
+    "backend": {
+      "root": "./",
+      "framework": "fastapi",
+      "entrypoint": "server:app"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/diagnose",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/",
+      "destination": {
+        "service": "backend"
+      }
+    },
+    {
+      "source": "/(.*)",
+      "destination": {
+        "service": "frontend"
+      }
+    }
+  ]
+}
