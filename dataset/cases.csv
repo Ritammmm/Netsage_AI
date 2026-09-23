@@ -1,0 +1,31 @@
+Case_ID,Symptom,Topology_Note,Show_Output_Evidence,Expected_Fault,OSI_Layer,Concept_Tag,Severity
+1,PC cannot reach server,PC-Switch-Server network,show interfaces status: Fa0/2 notconnect,Server physical link failure,Layer 1,Physical Connectivity,Medium
+2,Two PCs in same switch cannot communicate,Two PCs connected to switch,show vlan brief: PC ports in different VLANs,Wrong VLAN assignment,Layer 2,VLAN,Medium
+3,VLAN users cannot communicate through switch,Switch with multiple VLANs,show vlan brief: VLAN missing,Required VLAN not created,Layer 2,VLAN Configuration,Medium
+4,Inter VLAN communication fails,Router-on-stick topology,show interfaces trunk: trunk missing,Trunk link not configured,Layer 2,Trunking,High
+5,PC gets IP but cannot access another network,PC-Switch-Router,show ip route: destination network missing,Missing route,Layer 3,Routing,High
+6,PC cannot access gateway,PC connected to switch,show ip interface brief: interface down,Router interface shutdown,Layer 3,Interface Status,High
+7,PC receives 169.254.x.x address,DHCP network,show ip dhcp pool: no available addresses,DHCP pool exhausted,Layer 7,DHCP,Medium
+8,PC cannot obtain IP address,DHCP server topology,show running-config: DHCP pool missing,DHCP configuration missing,Layer 7,DHCP,High
+9,Users cannot access website by name,PC-DNS Server,nslookup fails,DNS server issue,Layer 7,DNS,Medium
+10,Internet access fails,LAN-Router-Internet,show ip nat translations empty,NAT not configured,Layer 3,NAT,High
+11,Only some websites blocked,Network with ACL,show access-lists: deny rule found,ACL blocking traffic,Layer 3/4,ACL,High
+12,Router cannot reach remote network,Two router topology,show ip route missing remote route,Static route missing,Layer 3,Routing,High
+13,Network communication slow,Switch based network,show interfaces: errors increasing,Interface errors,Layer 1,Interface,Medium
+14,Switch port not working,PC-Switch,show interfaces status: port disabled,Port administratively down,Layer 1,Switch Port,Medium
+15,Wireless user cannot connect,Access Point network,SSID mismatch in configuration,Wrong SSID,Layer 2,Wireless,Medium
+16,Wireless authentication fails,Wireless network,Security key mismatch,Wrong wireless password,Layer 2,Wireless Security,Medium
+17,Guest users access internal servers,Guest VLAN network,show access-lists: missing deny rule,Guest isolation failure,Layer 3/4,ACL,High
+18,Server reachable by IP but not name,DNS enabled server,DNS lookup returns failure,DNS record missing,Layer 7,DNS,Medium
+19,PC cannot communicate after VLAN change,Managed switch,show vlan brief shows wrong port VLAN,Incorrect VLAN assignment,Layer 2,VLAN,Medium
+20,Router cannot forward packets,Router network,show ip interface brief shows down interface,Router interface failure,Layer 3,Routing,High
+21,Duplicate IP warning,LAN network,ARP table shows same IP for two MACs,Duplicate IP address,Layer 2,IP Addressing,Medium
+22,Wrong subnet communication failure,Multiple subnet network,IP configuration shows wrong mask,Incorrect subnet mask,Layer 3,IP Addressing,Medium
+23,Server inaccessible from one VLAN,Inter VLAN network,show access-lists denies VLAN traffic,ACL rule blocking VLAN,Layer 3/4,ACL,High
+24,Switch cannot communicate with another switch,Switch-Switch topology,show interfaces trunk shows inactive trunk,Trunk failure,Layer 2,Trunking,High
+25,Default gateway unreachable,PC gateway network,ipconfig shows wrong gateway,Wrong default gateway,Layer 3,Gateway,Medium
+26,NAT users cannot browse internet,LAN with NAT router,show ip nat statistics incorrect,Wrong NAT configuration,Layer 3,NAT,High
+27,Packets dropped between networks,Router network,show ip route incomplete,Routing table issue,Layer 3,Routing,High
+28,Switch learns no MAC address,Switch-PC network,show mac address-table empty,No active connection,Layer 2,MAC Learning,Medium
+29,Network service unavailable,Client-server network,show services: service disabled,Server service stopped,Layer 7,Application Service,Medium
+30,AI diagnosis corrected by human,Any Packet Tracer topology,AI predicted routing but evidence showed VLAN issue,Incorrect AI diagnosis,Multiple,Responsible AI Review,High
